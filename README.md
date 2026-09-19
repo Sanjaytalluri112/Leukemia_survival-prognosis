@@ -14,16 +14,6 @@ The application:
 - Displays prediction results through an interactive web interface
 - Supports cohort-level analysis and treatment simulation
 
-## Features
-
-- Patient-specific survival prognosis
-- Interactive clinical data input
-- DeepHit and Log-Hazard survival models
-- Automated preprocessing and feature selection
-- Cohort-level analysis and visualization
-- Treatment simulation
-- Docker-based deployment support
-
 ## Tech Stack
 
 | Component | Technology |
