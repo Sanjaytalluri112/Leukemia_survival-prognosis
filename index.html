@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leukemia Prognosis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="app-background"></div>
+
+    <header class="app-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-dna logo-icon"></i>
+            <div class="logo-text">
+                <h1>Leukemia<span class="highlight"> Analysis</span></h1>
+                <small>AML Survival Prognosis</small>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-btn active" data-tab="home">Overview</button>
+            <button class="nav-btn" data-tab="analysis">Dashboard</button>
+            <button class="nav-btn" data-tab="treatment">Treatment</button>
+            <button class="nav-btn" data-tab="bulk">Cohort</button>
+            <button class="nav-btn" data-tab="trials">Trials</button>
+        </nav>
+    </header>
+
+    <main class="app-container">
+        
+        <section id="home" class="tab-content active">
+            <div class="hero-modern">
+                <div class="hero-badge">Advanced Leukemia Prognostics</div>
+                <h2 class="gradient-text">Predict. Analyze. Optimize.</h2>
+                <p class="hero-subtext">
+                    A prognostic tool designed specifically for <strong>Acute Myeloid Leukemia (AML)</strong>. 
+                    Transform complex clinical data into survival insights.
+                </p>
+                <button class="btn-glow" onclick="document.querySelector('[data-tab=\'analysis\']').click()">
+                    Launch Analysis <span>→</span>
+                </button>
+            </div>
+
+            <div class="workflow-section" style="margin-bottom: 50px;">
+                <h3 class="section-title">Analysis Workflow</h3>
+                <div class="workflow-steps">
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-sliders"></i></div>
+                        <h4>1. Input Profile</h4>
+                        <p>Enter patient demographics, <strong>FLT3/NPM1</strong> status, and clinical markers.</p>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h4>2.Prediction</h4>
+                        <p><strong>DeepHit</strong> & <strong>LogHazard</strong> models compute survival probability.</p>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4>3. Clinical Insights</h4>
+                        <p>Review risk stratification, treatment simulations, and matched trials.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel" style="margin-bottom: 40px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <h3 style="text-align: center; margin-bottom: 30px; border: none; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; color: var(--text-light);">Clinical Context</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 15px; font-size: 1.2rem;"><i class="fa-solid fa-microscope" style="color:var(--primary); margin-right:8px;"></i> Pathophysiology</h4>
+                        <p style="line-height: 1.8; color: var(--text-medium); margin-bottom: 20px;">
+                            Leukemia is a cancer of <strong>blood and bone marrow</strong>, in which abnormal white blood cells multiply uncontrollably, crowding out healthy red blood cells and platelets.
+                        </p>
+                        <h4 style="color: var(--text-dark); margin-bottom: 10px; font-size: 1.1rem;">The 4 Main Classifications</h4>
+                        <ul class="marker-list">
+                            <li><strong>AML</strong> - Rapid progression; myeloid line.</li>
+                            <li><strong>ALL</strong> - Rapid progression; lymphoid line.</li>
+                            <li><strong>CML</strong> - Slow progression; myeloid line.</li>
+                            <li><strong>CLL</strong> - Slow progression; lymphoid line.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 15px; font-size: 1.2rem;"><i class="fa-solid fa-bullseye" style="color:var(--primary); margin-right:8px;"></i> Why Focus on AML?</h4>
+                        <p style="line-height: 1.8; color: var(--text-medium); margin-bottom: 20px;">
+                            <strong>Acute Myeloid Leukemia (AML)</strong> is the most common acute leukemia in adults. Outcomes vary wildly based on cytogenetics.
+                        </p>
+                        <div style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 15px; border-radius: 4px;">
+                            <p style="font-size: 0.9rem; color: #064e3b; margin: 0;">
+                                <strong>Advantage:</strong> This platform integrates <strong>Age, Blast %, Genetics, and Transplant Status</strong> to provide personalized survival curves beyond standard staging.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-disclaimer">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p><strong>Medical Disclaimer:</strong> This tool is for <strong>educational and research purposes only</strong>. It does not constitute a formal medical diagnosis. Always consult with a qualified oncologist.</p>
+            </div>
+        </section>
+
+        <section id="analysis" class="tab-content">
+            <div class="dashboard-layout">
+                <aside class="sidebar-panel">
+                    <div class="panel-header">
+                        <h3>Patient Data</h3>
+                        <button id="reset-btn" class="btn-icon"><i class="fa-solid fa-rotate-right"></i></button>
+                    </div>
+                    <form id="prediction-form">
+                        <fieldset>
+                            <legend>Demographics</legend>
+                            <div class="input-row">
+                                <div class="field">
+                                    <label>Age: <span id="val-age" class="value-tag">45</span></label>
+                                    <input type="range" id="age" name="Age" min="18" max="99" value="45" oninput="document.getElementById('val-age').innerText=this.value">
+                                </div>
+                                <div class="field">
+                                    <label>Gender</label>
+                                    <select id="gender" name="Gender">
+                                        <option value="0.0">Male</option>
+                                        <option value="1.0">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Clinical & Molecular</legend>
+                            <div class="field">
+                                <label>Blasts (BMBP): <span id="val-bmbp" class="value-tag">15%</span></label>
+                                <input type="range" id="bmbp" name="BMBP" min="0" max="100" value="15" oninput="document.getElementById('val-bmbp').innerText=this.value + '%'">
+                            </div>
+                            <div class="input-row">
+                                <div class="field">
+                                    <label>FLT3-ITD Status</label>
+                                    <select id="flt3" name="FLT3.ITD">
+                                        <option value="0.0" selected>Wild Type (-)</option>
+                                        <option value="1.0">Mutated (+)</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>NPM1 Mutation</label>
+                                    <select id="npm1" name="NPM1">
+                                        <option value="0.0">Wild Type (-)</option>
+                                        <option value="1.0">Mutated (+)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Intervention</legend>
+                            <div class="field">
+                                <label>Transplant Status</label>
+                                <select id="transplant" name="Transplant">
+                                    <option value="0.0">No Transplant</option>
+                                    <option value="1.0">Received Transplant</option>
+                                </select>
+                            </div>
+                            <div class="hidden-input">
+                                <input type="hidden" id="chemo" name="Chemotherapy" value="1.0">
+                            </div>
+                        </fieldset>
+                        <div class="model-toggle">
+                            <label>Model:</label>
+                            <div class="toggle-group">
+                                <input type="radio" name="model_type" value="deephit" id="m1" checked>
+                                <label for="m1">DeepHit</label>
+                                <input type="radio" name="model_type" value="loghazard" id="m2">
+                                <label for="m2">LogHazard</label>
+                            </div>
+                        </div>
+                        <button type="submit" id="run-btn" class="btn-primary btn-full">RUN PREDICTION</button>
+                        <p id="status-msg">Ready</p>
+                    </form>
+                </aside>
+
+                <div class="main-panel">
+                    <div class="stats-row">
+                        <div class="stat-card-pro gradient-1">
+                            <div class="card-icon icon-blue"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div class="card-content"><h4 id="card-title-1">Risk Stratification</h4><span class="stat-val" id="res-value-1">--</span></div>
+                        </div>
+                        <div class="stat-card-pro gradient-2">
+                            <div class="card-icon icon-purple"><i class="fa-solid fa-hourglass-end"></i></div>
+                            <div class="card-content"><h4 id="card-title-2">Median Survival</h4><span class="stat-val" id="res-value-2">--</span></div>
+                        </div>
+                        <div class="stat-card-pro gradient-3">
+                            <div class="card-icon icon-green"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <div class="card-content"><h4 id="card-title-3">Cohort Standing</h4><span class="stat-val" id="res-value-3">--</span></div>
+                        </div>
+                        <div class="stat-card-pro gradient-4">
+                            <div class="card-icon icon-orange"><i class="fa-solid fa-notes-medical"></i></div>
+                            <div class="card-content"><h4 id="card-title-4">Condition Severity</h4><span class="stat-val" id="res-value-4">--</span></div>
+                        </div>
+                    </div>
+                    <div class="drivers-bar">
+                        <span><i class="fa-solid fa-tags"></i> Drivers:</span>
+                        <div id="drivers-list" class="drivers-content"><span class="tag-empty">Waiting for analysis...</span></div>
+                    </div>
+                    <div class="charts-row">
+                        <div class="chart-box large"><div id="survival-plot" style="height: 400px;"></div></div>
+                        <div class="chart-box small"><div id="radar-plot" style="height: 400px;"></div></div>
+                    </div>
+                    <div id="bold-analysis-container" class="ai-box" style="display:none;">
+                        <div class="ai-header"><i class="fa-solid fa-microchip"></i> Insight</div>
+                        <p id="bold-analysis-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="treatment" class="tab-content">
+            <div class="dashboard-layout">
+                <aside class="sidebar-panel">
+                    <h3>Simulate Outcomes</h3>
+                    <p class="text-sm">Compare Standard Chemo vs. ASCT.</p>
+                    <div class="patient-summary" id="tx-profile-summary"><li>Run prediction first.</li></div>
+                    <button id="run-tx-btn" class="btn-primary btn-full">Simulate</button>
+                </aside>
+                <div class="main-panel">
+                    <div class="stats-row half">
+                        <div class="stat-card-pro">
+                            <div class="card-icon icon-green"><i class="fa-solid fa-shield-virus"></i></div>
+                            <div class="card-content"><h4>Relapse Risk Reduction</h4><span class="stat-val val-positive" id="tx-risk-reduction">--%</span></div>
+                        </div>
+                        <div class="stat-card-pro">
+                            <div class="card-icon icon-blue"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <div class="card-content"><h4>Cure Probability</h4><span class="stat-val val-positive" id="tx-cure-prob">--%</span></div>
+                        </div>
+                    </div>
+                    <div class="chart-box"><div id="treatment-plot" style="height: 400px;"></div></div>
+                    <div class="ai-box">
+                        <div class="ai-header">Recommendation</div>
+                        <p id="tx-analysis-text">Awaiting simulation...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="bulk" class="tab-content">
+    <div class="center-panel">
+        <h2>Cohort Analysis (Max 10 Patients)</h2> <div class="upload-zone">
+            <form id="bulk-upload-form">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Upload Patient CSV</p>
+                <input type="file" id="patient-file" name="file" accept=".csv, .tsv" required>
+                <button type="submit" id="upload-btn" class="btn-primary">Analyze Cohort</button>
+            </form>
+        </div>
+
+        <div id="bulk-results-view" style="display:none; margin-top: 30px; width: 100%;">
+            <div class="stats-row thirds">
+                <div class="stat-card-pro"><div class="card-content"><h4>Patients</h4><span id="cohort-total" class="stat-val">--</span></div></div>
+                <div class="stat-card-pro"><div class="card-content"><h4>Avg Survival</h4><span id="cohort-avg-surv" class="stat-val">--</span></div></div>
+                <div class="stat-card-pro"><div class="card-content"><h4>High Risk</h4><span id="cohort-high-risk" class="stat-val val-negative">--</span></div></div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-box"><div id="bulk-curve-plot" style="height: 350px;"></div></div>
+                <div class="chart-box"><div id="bulk-pie-plot" style="height: 350px;"></div></div>
+            </div>
+
+            <h3 style="margin: 40px 0 20px; text-align: left; border-bottom: 2px solid var(--border); padding-bottom: 10px;">
+                <i class="fa-solid fa-people-group" style="color:var(--primary);"></i> Individual Deep Dive
+            </h3>
+            
+            <div class="chart-box" style="margin-bottom: 30px;">
+                <div id="bulk-scatter-plot" style="height: 350px;"></div>
+            </div>
+
+            <div id="patient-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; text-align: left;">
+                </div>
+            <div class="ai-box" style="margin-top: 30px;">
+                <p id="risk-factors-text"></p>
+                <p id="treatment-suggestion-text"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+      
+        <section id="trials" class="tab-content">
+            <div class="center-panel">
+                <h2>Trial Matching</h2>
+                <div class="trial-search-bar">
+                    <div class="trial-info">
+                        <span>Matching for: <strong id="trial-age-display">--</strong> / <strong id="trial-flt3-display">--</strong></span>
+                    </div>
+                    <div class="btn-group">
+                        <button id="find-trials-btn" class="btn-primary">Search Database</button>
+                        <a href="https://www.google.com/maps/search/oncology+center+near+me" target="_blank" class="btn-secondary"><i class="fa-solid fa-location-dot"></i> Find Clinics</a>
+                    </div>
+                </div>
+                <div id="trials-results" class="trials-list">
+                    <div class="empty-msg">No trials loaded.</div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
