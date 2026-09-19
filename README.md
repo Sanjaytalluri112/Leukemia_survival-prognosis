@@ -7,34 +7,37 @@ A web-based leukemia survival prognosis application that uses trained survival m
 This project provides an interactive dashboard for leukemia survival analysis and prognosis.
 
 The application:
+
 - Accepts patient clinical information as input
-- Processes and transforms the input using the trained preprocessing pipeline
+- Processes and transforms the input using trained preprocessing components
 - Generates survival predictions using trained survival models
-- Displays predicted survival information through an interactive web interface
+- Displays prediction results through an interactive web interface
 - Supports cohort-level analysis and treatment simulation
 
 ## Features
 
 - Patient-specific survival prognosis
 - Interactive clinical data input
-- Survival analysis using trained DeepHit and Log-Hazard models
+- DeepHit and Log-Hazard survival models
 - Automated preprocessing and feature selection
-- Cohort analysis and visualization
+- Cohort-level analysis and visualization
 - Treatment simulation
 - Docker-based deployment support
 
 ## Tech Stack
 
-- **Backend:** Python, Flask
-- **Frontend:** HTML, CSS, JavaScript
-- **Models:** DeepHit, Log-Hazard
-- **Data Processing:** Scikit-learn, NumPy, Pandas
-- **Deployment:** Docker
+| Component | Technology |
+|---|---|
+| Backend | Python, Flask |
+| Frontend | HTML, CSS, JavaScript |
+| Survival Models | DeepHit, Log-Hazard |
+| Data Processing | NumPy, Pandas, Scikit-learn |
+| Deployment | Docker |
 
 ## Project Structure
 
 ```text
-leukemia-prognosis-app/
+Leukemia_survival-prognosis/
 ├── app.py
 ├── inference_engine.py
 ├── index.html
@@ -55,48 +58,103 @@ leukemia-prognosis-app/
 ```
 
 ## How It Works
-Patient Clinical Data
-        ↓
-Input Validation
-        ↓
-Data Preprocessing
-        ↓
-Feature Selection
-        ↓
-Trained Survival Models
-        ↓
-Survival Prediction
-        ↓
-Interactive Dashboard  
 
+The application follows the pipeline below:
+
+```text
+Patient Clinical Data
+        │
+        ▼
+Input Validation
+        │
+        ▼
+Data Preprocessing
+        │
+        ▼
+Feature Selection
+        │
+        ▼
+Trained Survival Models
+        │
+        ▼
+Survival Prediction
+        │
+        ▼
+Interactive Dashboard
+```
+
+### Processing Pipeline
+
+1. **Patient Input**  
+   Clinical information is entered through the web interface.
+
+2. **Input Validation**  
+   The application validates and prepares the submitted clinical data.
+
+3. **Preprocessing**  
+   Missing values are handled and the input is transformed using the stored preprocessing pipeline.
+
+4. **Feature Selection**  
+   The trained feature-selection component selects the required input features.
+
+5. **Model Inference**  
+   The processed data is passed to the trained survival models.
+
+6. **Prediction**  
+   Survival-related predictions are generated from the model outputs.
+
+7. **Visualization**  
+   The results are presented through the interactive dashboard.
 
 ## Running Locally
-1. Clone the Repository
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Sanjaytalluri112/Leukemia_survival-prognosis.git
-
 cd Leukemia_survival-prognosis
+```
 
-2. Create a Virtual Environment
-macOS / Linux
+### 2. Create a Virtual Environment
+
+#### macOS / Linux
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
-Windows
+#### Windows
+
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
-3. Install Dependencies
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-4. Run the Application
+### 4. Run the Application
+
+```bash
 python app.py
+```
 
-Docker
+The Flask application will start locally.
 
-The project includes a Dockerfile for containerized deployment.
+Open the application in your browser:
 
-1. Build the Docker Image
-docker build -t leukemia-prognosis .
+```text
+http://127.0.0.1:5000
+```
 
-2. Run the Container
-docker run -p 5000:5000 leukemia-prognosis
+### 5. Stop the Application
+
+Press:
+
+```text
+Ctrl + C
+```
