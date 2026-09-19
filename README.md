@@ -52,12 +52,50 @@ leukemia-prognosis-app/
 │   ├── labtrans_50.pkl
 │   └── scaler.pkl
 └── README.md
+```
 
-Running Locally
-1. Clone the repository
-git clone <repository-url>
+## How It Works
+Patient Clinical Data
+        ↓
+Input Validation
+        ↓
+Data Preprocessing
+        ↓
+Feature Selection
+        ↓
+Trained Survival Models
+        ↓
+Survival Prediction
+        ↓
+Interactive Dashboard  
+
+
+## Running Locally
+1. Clone the Repository
+git clone https://github.com/Sanjaytalluri112/Leukemia_survival-prognosis.git
 cd Leukemia_survival-prognosis
-2. Install dependencies
+
+2. Create a Virtual Environment
+macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
+
+Windows
+python -m venv venv
+venv\Scripts\activate
+
+3. Install Dependencies
 pip install -r requirements.txt
-3. Run the application
+
+5. Run the Application
 python app.py
+
+Docker
+
+The project includes a Dockerfile for containerized deployment.
+
+1. Build the Docker Image
+docker build -t leukemia-prognosis .
+
+2. Run the Container
+docker run -p 5000:5000 leukemia-prognosis
