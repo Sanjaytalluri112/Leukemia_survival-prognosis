@@ -1,0 +1,12 @@
+Flask
+pandas
+numpy
+scikit-learn
+scipy
+joblib
+torchtuples
+pycox
+lifelines
+Flask-CORS
+gunicorn
+torch
