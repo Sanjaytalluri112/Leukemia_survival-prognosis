@@ -73,6 +73,7 @@ Interactive Dashboard
 ## Running Locally
 1. Clone the Repository
 git clone https://github.com/Sanjaytalluri112/Leukemia_survival-prognosis.git
+
 cd Leukemia_survival-prognosis
 
 2. Create a Virtual Environment
@@ -87,7 +88,7 @@ venv\Scripts\activate
 3. Install Dependencies
 pip install -r requirements.txt
 
-5. Run the Application
+4. Run the Application
 python app.py
 
 Docker
