@@ -83,29 +83,6 @@ Survival Prediction
 Interactive Dashboard
 ```
 
-### Processing Pipeline
-
-1. **Patient Input**  
-   Clinical information is entered through the web interface.
-
-2. **Input Validation**  
-   The application validates and prepares the submitted clinical data.
-
-3. **Preprocessing**  
-   Missing values are handled and the input is transformed using the stored preprocessing pipeline.
-
-4. **Feature Selection**  
-   The trained feature-selection component selects the required input features.
-
-5. **Model Inference**  
-   The processed data is passed to the trained survival models.
-
-6. **Prediction**  
-   Survival-related predictions are generated from the model outputs.
-
-7. **Visualization**  
-   The results are presented through the interactive dashboard.
-
 ## Running Locally
 
 ### 1. Clone the Repository
